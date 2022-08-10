@@ -17,17 +17,14 @@ public class MagicBox<T> {
         return false;
     }
 
-    public Object pick() {
+    public T pick() {
         for (int i = 0; i < box.length; i++) {
             if (box[i] == null) {
                 throw new RuntimeException("Коробка не заполнена! Осталось заполнить " + (box.length - i) + " ячейки!");
             }
         }
-        if (box[box.length - 1] != null) {
-            Random random = new Random();
-            int randomInt = random.nextInt(box.length);
-            return box[randomInt];
-        }
-        return null;
+        Random random = new Random();
+        int randomInt = random.nextInt(box.length);
+        return box[randomInt];
     }
 }
